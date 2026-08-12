@@ -1,0 +1,133 @@
+/* Start Variables */
+:root {
+  --main-purple-color: #5c48f1;
+  --elements-background-color: #eeecfd;
+  --element-border-color: #e0e0e1;
+}
+/* End Variables */
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+ul {
+  list-style: none;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small Screens */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium Screens */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large Screens */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End Global Rules */
+/* Start Choose Interests */
+h2 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: var(--elements-background-color);
+  color: var(--main-purple-color);
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 20px;
+  grid-gap: 18px;
+}
+.card {
+  padding: 30px;
+  border: 1px solid var(--element-border-color);
+  border-radius: 8px;
+  position: relative;
+}
+/* تأثير الـ Hover على الكارت */
+.card:hover {
+  /* تغيير لون الحدود للون البنفسجي عند تمرير الماوس */
+  border-color: var(--main-purple-color);
+  /* تغيير لون الخلفية */
+  background-color: var(--elements-background-color);
+  /* جعل المؤشر يتحول لشكل اليد */
+  cursor: pointer;
+  /* إضافة انتقال ناعم للتأثير */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+/* إخفاء الـ Checkbox الأصلي */
+.card input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--main-purple-color);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+/* إنشاء المربع الداخلي الصغير */
+.card input[type="checkbox"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--main-purple-color);
+  border-radius: 2px;
+  transform: scale(0); /* مخفي في الحالة العادية */
+  transition: 0.2s ease-in-out;
+}
+/* إظهار المربع الداخلي لما يتحدد */
+.card input[type="checkbox"]:checked::before {
+  transform: scale(1); /* يظهر لما تعمل checked */
+}
+.card label {
+  display: flex;
+  flex-direction: column;/* يرتب الأيقونة والنص تحت بعض */
+  align-items: center;/* يوسط الأيقونة والنص أفقياً */
+  justify-content: center;/* يوسط العناصر رأسياً */
+  gap: 10px;/* مسافة بين الأيقونة والنص */
+  cursor: pointer;
+}
+.card i {
+  font-size: 40px;
+  color: var(--main-purple-color);
+}
+.card span {
+  font-weight: 600;
+}
+/* لما الـ checkbox يتحتم عليه، يغير خلفية وحدود الكارت */
+.card:has(input[type="checkbox"]:checked) {
+  background-color: var(--element-border-color); /* لون خلفية فاتح زي الصورة */
+  border-color: var(--main-purple-color); /* لون الحدود البنفسجي */
+}
+/* End Choose Interests */
